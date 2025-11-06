@@ -32,6 +32,7 @@ private slots:
         if (frame.empty()) return;
 
         cv::cvtColor(frame, frame, cv::COLOR_BGR2RGB);
+        cv::rotate(frame, frame, cv::ROTATE_180);  //Xoay 180 độ
         QImage img((const uchar*)frame.data, frame.cols, frame.rows, frame.step, QImage::Format_RGB888);
         setPixmap(QPixmap::fromImage(img).scaled(size(), Qt::KeepAspectRatio));
     }
